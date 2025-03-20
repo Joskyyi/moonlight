@@ -1,0 +1,441 @@
+/* Основные цвета и переменные */
+:root {
+    --primary: #8a2be2; /* Яркий фиолетовый */
+    --primary-dark: #7928ca;
+    --secondary: #00c4ff; /* Голубой */
+    --dark: #0f0f13; /* Очень темный фон */
+    --darker: #070709;
+    --light-dark: #1a1a24;
+    --text: #e6e6e6;
+    --text-secondary: #a0a0a0;
+    --success: #00ff84; /* Зеленый для статуса undetected */
+    --gradient: linear-gradient(45deg, var(--primary), var(--secondary));
+}
+
+/* Сброс и общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Header */
+header {
+    background-color: var(--darker);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0;
+}
+
+.logo p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(0, 255, 132, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--success);
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 0 10px var(--success);
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    font-weight: 700;
+    color: var(--success);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.downloads {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Hero Section */
+.hero {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover;
+    padding: 8rem 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(15, 15, 19, 0.7), rgba(15, 15, 19, 0.9));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 0;
+    background-color: var(--light-dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--dark);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.feature-card .smaller-title {
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+}
+
+/* Download Section */
+.download {
+    padding: 6rem 0;
+    background-color: var(--light-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.download::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1), transparent 60%);
+    z-index: 1;
+}
+
+.download .container {
+    position: relative;
+    z-index: 2;
+}
+
+.download-box {
+    background-color: var(--dark);
+    border-radius: 15px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.download-box:hover {
+    transform: translateY(-5px);
+}
+
+.download-info {
+    text-align: center;
+}
+
+.download-info p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.undetected-text {
+    color: var(--success);
+    font-weight: 700;
+}
+
+.btn-download {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    margin-top: 1rem;
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 196, 255, 0.5);
+    color: white;
+}
+
+.btn-download:active {
+    transform: translateY(-1px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--darker);
+    padding: 4rem 0 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo p {
+    color: var(--text-secondary);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-dark);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--gradient);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copyright p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.disclaimer {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 132, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 132, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 132, 0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .download-box {
+        padding: 2rem 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links, .footer-social {
+        justify-content: center;
+    }
+}
+
+/* Дополнительные медиа-запросы для очень маленьких экранов */
+@media (max-width: 400px) {
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+    
+    .feature-card {
+        padding: 1.5rem 1rem;
+    }
+} 
